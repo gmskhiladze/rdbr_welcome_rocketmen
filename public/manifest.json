@@ -1,21 +1,26 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Welcome Rocket men !",
+  "name": "RDBR Welcome Rocket men !",
   "icons": [
     {
-      "src": "favicon.ico",
+      "src": "https://redberry.international/wp-content/uploads/2021/05/cropped-favicon-32x32.png",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     },
     {
-      "src": "logo192.png",
+      "src": "https://redberry.international/wp-content/uploads/2021/05/cropped-favicon-180x180.png",
+      "type": "image/png",
+      "sizes": "180x180"
+    },
+    {
+      "src": "https://redberry.international/wp-content/uploads/2021/05/cropped-favicon-192x192.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "logo512.png",
+      "src": "https://redberry.international/wp-content/uploads/2021/05/cropped-favicon-270x270.png",
       "type": "image/png",
-      "sizes": "512x512"
+      "sizes": "270x270"
     }
   ],
   "start_url": ".",
