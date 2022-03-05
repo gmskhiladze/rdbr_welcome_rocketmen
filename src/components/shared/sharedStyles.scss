@@ -2,8 +2,119 @@
 @import "src/assets/scss/variables";
 
 h1 {
-  @include wh(100%, none, none, none, none, none );
-  @include flex(flex, row, center, center, none);
+  @include wh(100%, none, none, none, none, none);
+  @include flex(flex, row, center, center);
   @include font-face($heading_font, normal, normal, 64px, 79px, center, none);
   color: $Redberry_Red;
+}
+
+span {
+  @include wh(75%, none, none, none, none, none);
+  @include font-face($default_font, normal, normal, 24px, 48px, start, none);
+  color: $default_white;
+}
+
+svg {
+  pointer-events: none;
+}
+
+.container {
+  @include wh(100%, 100%, none, none, 100vh, none);
+  @include flex(flex, row, center, center);
+  background-color: $default_black;
+
+  .left__panel {
+    @include wh(50%, none, none, none, 100vh, none);
+    @include flex(flex, column, start, center);
+    background-color: $default_white;
+
+    .left__panel__title {
+      cursor: default;
+      @include margin(70px, 0, 0, 0);
+      @include wh(80%, none, none, none, none, none);
+      @include flex(flex, row, center, start);
+    }
+
+    .input__container {
+      @include margin(25px, 0, 0, 0);
+      @include flex(flex, column, center, center);
+
+      .input__text {
+        @include margin(25px, 25px, 25px, 25px);
+        @include padding(0, 0, 0, 57px);
+        @include wh($input_width, none, none, $input_height, none, none);
+        @include flex(flex, column, center, center);
+        @include font-face($default_font, italic, normal, $input_font_size, $input_line_height, none, none);
+        color: $input_color;
+        background: $default_white;
+        border-radius: 0;
+        border: 1px solid $input_border_color;
+        box-sizing: border-box;
+      }
+
+      input[type=number]::-webkit-inner-spin-button,
+      input[type=number]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        @include margin(0, 0, 0, 0);
+      }
+
+      .input__text:focus {
+        border: 1px solid $input_border_color;
+      }
+
+      //.notValid:focus {
+      //  padding-left: 0;
+      //  outline: 1px solid $Redberry_Red;
+      //  border: 1px solid $Redberry_Red;
+      //}
+
+    }
+
+    .pagination{
+      @include margin(100px, 25px, 50px, 25px);
+      @include flex(flex, row, center, center);
+
+      .circles{
+        @include margin(0, 10px, 0, 10px);
+        @include flex(flex, none, center, center);
+
+        .circle{
+          cursor: pointer;
+          @include margin(0, 5px, 0, 5px);
+          @include flex(flex, none, center, center);
+          opacity: 50%;
+          border: none;
+          background: transparent;
+        }
+
+        .selected {
+          opacity: 100%;
+        }
+      }
+
+      .arrowLeft, .arrowRight{
+        @include flex(flex, none, center, center);
+        cursor: pointer;
+        border: none;
+        background: transparent;
+      }
+    }
+
+  }
+
+  .right__panel {
+    cursor: default;
+    @include wh(50%, none, none, none, 100vh, none);
+    @include flex(flex, column, start, start);
+
+    .right__panel__title {
+      @include margin(70px, 0, 0, 0);
+      @include wh(80%, none, none, none, none, none);
+    }
+
+    .right__panel__description {
+      @include margin(100px, 0, 0, 0);
+      @include flex(flex, column, center, center);
+    }
+  }
 }
