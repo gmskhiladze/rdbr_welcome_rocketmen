@@ -1,0 +1,9 @@
+@import "src/assets/scss/mixins";
+@import "src/assets/scss/variables";
+
+h1 {
+  @include wh(100%, none, none, none, none, none );
+  @include flex(flex, row, center, center, none);
+  @include font-face($heading_font, normal, normal, 64px, 79px, center, none);
+  color: $Redberry_Red;
+}

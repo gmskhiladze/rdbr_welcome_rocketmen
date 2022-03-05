@@ -1,0 +1,13 @@
+@import "src/assets/scss/mixins";
+@import "src/assets/scss/variables";
+
+.App {
+  @include wh(100%, none, none, none, 100vh, none );
+  @include flex(flex, column, start, center);
+
+  background-image: url("/assets/images/bg_stars.png");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
