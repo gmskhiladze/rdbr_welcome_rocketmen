@@ -26,8 +26,8 @@ function PersonalInfo() {
                 <div className={"input__container"}>
                     <input className={"input__text"} type={'text'} name={"firstName"} placeholder={"First Name"} required/>
                     <input className={"input__text"} type={'text'} name={"lastName"} placeholder={"Last Name"} required/>
-                    <input className={"input__text"} type={'email'} name={"email"} placeholder={"E Mail"} required/>
-                    <input className={"input__text"} type={'tel'} name={"tel"} placeholder={"+995 5__ __ __ __"} required/>
+                    <input className={"input__email"} type={'email'} name={"email"} placeholder={"E Mail"} required/>
+                    <input className={"input__tel"} type={'tel'} name={"tel"} placeholder={"+995 5__ __ __ __"} required/>
                 </div>
 
                 <div className={"pagination"}>

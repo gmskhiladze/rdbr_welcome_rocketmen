@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
 import './App.scss';
 
+// import svgProvider from "./helpers/svgProvider";
 import Langing from "./components/Langing/Langing";
-import svgProvider from "./helpers/svgProvider";
 import PersonalInfo from "./components/PersonalInfo/PersonalInfo";
-
+import TechnicalSkillset from "./components/TechnicalSkillset/TechnicalSkillset";
 
 function App() {
 
@@ -21,7 +21,8 @@ function App() {
 
       { !isReady && <Langing ready={startSurvey}/>}
 
-      { isReady && <PersonalInfo/>}
+      {/*{ isReady && <PersonalInfo/>}*/}
+      { isReady && <TechnicalSkillset/>}
 
     </div>
   );

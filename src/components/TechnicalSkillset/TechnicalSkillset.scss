@@ -1,0 +1,57 @@
+@import "src/assets/scss/mixins";
+@import "src/assets/scss/variables";
+
+
+.input__container {
+  display: flex;
+  align-items: end !important;
+
+  .btn__add__language{
+    @include margin(15px, 25px, 25px, 25px);
+    @include wh(201px, none, none, 32px, none, none);
+    @include flex(flex, none, center, center);
+    @include font-face($default_font, normal, normal, 12px, 15px, center, none);
+    border: none;
+    color: $default_white;
+    background: $Redberry_Red;
+  }
+
+  .list {
+    @include flex(flex, column, center, center);
+    @include margin(25px, 25px, 25px, 25px);
+    @include padding(0, 0, 0, 0);
+    list-style-type: none;
+
+    .list__items{
+      @include wh(447px, none, none, 48px, none, none);
+      @include margin(15px, 0, 15px, 0);
+      @include flex(flex, row, space-between, center);
+      @include wh($input_width, none, none, $input_height, none, none);
+      @include font-face($default_font, italic, normal, $input_font_size, $input_line_height, none, none);
+      color: $input_color;
+      background: $default_white;
+      border-radius: 0;
+      border: 1px solid $input_border_color;
+      box-sizing: border-box;
+
+      .skill__title{
+          @include margin(0, 5px, 0, 25px);
+      }
+
+      .user__experience{
+          @include margin(0, 115px, 0, 25px);
+      }
+
+      .remove__btn__container{
+        .remove__btn {
+          cursor: pointer;
+          @include margin(0, 15px, 0, 5px);
+          @include flex(flex, none, center, center);
+          opacity: 100%;
+          border: none;
+          background: transparent;
+        }
+      }
+    }
+  }
+}

@@ -39,11 +39,11 @@ svg {
       @include margin(25px, 0, 0, 0);
       @include flex(flex, column, center, center);
 
-      .input__text {
+      .input__text, .input__email, .input__tel, .input__select {
         @include margin(25px, 25px, 25px, 25px);
         @include padding(0, 0, 0, 57px);
         @include wh($input_width, none, none, $input_height, none, none);
-        @include flex(flex, column, center, center);
+        @include flex(flex, none, center, center);
         @include font-face($default_font, italic, normal, $input_font_size, $input_line_height, none, none);
         color: $input_color;
         background: $default_white;
@@ -58,7 +58,7 @@ svg {
         @include margin(0, 0, 0, 0);
       }
 
-      .input__text:focus {
+      .input__text, .input__email, .input__tel, .input__select:focus {
         border: 1px solid $input_border_color;
       }
 
