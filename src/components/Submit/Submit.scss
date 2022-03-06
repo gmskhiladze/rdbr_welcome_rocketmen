@@ -1,0 +1,44 @@
+@import "src/assets/scss/mixins";
+@import "src/assets/scss/variables";
+
+
+.buttons {
+  @include margin(70px, 0, 0, 0);
+  @include flex(flex, column, center, center);
+
+  .btn__submit{
+    cursor: pointer;
+    @include wh(395px, none, none, 79px, none, none);
+    @include flex(flex, row, center, center);
+    @include font-face($default_font, normal, 400, $start_button_font_size, $start_button_line_height, center, none);
+    color: $default_white;
+    background: $start_button_bg_color;
+    border: none;
+    border-radius: $start_button_border_radius;
+    transition: 0.3s ease-in-out;
+  }
+
+  .go__back {
+    cursor: pointer;
+    @include margin(18px, 0, 0, 0);
+    @include wh(100%, none, none, 66px, none, none);
+    @include flex(flex, row, center, center);
+    @include font-face($default_font, normal, 400, $submitted_button_font_size, $submitted_button_line_height, center, underline);
+    color: $default_white;
+    transition: all 0.3s ease;
+  }
+
+  :hover{
+    transform: scale(1.03);
+  }
+
+}
+
+.thanks {
+  position: absolute;
+
+  span {
+    @include font-face($heading_font, normal, normal, 96px, 119px, center, none);
+    color: $Redberry_Red;
+  }
+}

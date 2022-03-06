@@ -6,6 +6,9 @@ import Langing from "./components/Langing/Langing";
 import PersonalInfo from "./components/PersonalInfo/PersonalInfo";
 import TechnicalSkillset from "./components/TechnicalSkillset/TechnicalSkillset";
 import Covid from "./components/Covid/Covid";
+import RedberrianInsights from "./components/RedberrianInsights/RedberrianInsights";
+import Submit from "./components/Submit/Submit";
+import SubmittedItemList from "./components/SubmittedItemList/SubmittedItemList";
 
 function App() {
 
@@ -22,9 +25,12 @@ function App() {
 
       { !isReady && <Langing ready={startSurvey}/>}
 
-      {/*{ isReady && <PersonalInfo/>}*/}
+      { isReady && <PersonalInfo/>}
       {/*{ isReady && <TechnicalSkillset/>}*/}
-      { isReady && <Covid/>}
+      {/*{ isReady && <Covid/>}*/}
+      {/*{ isReady && <RedberrianInsights/>}*/}
+      {/*{ isReady && <Submit/>}*/}
+      {/*{ isReady && <SubmittedItemList/>}*/}
 
     </div>
   );

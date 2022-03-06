@@ -62,11 +62,10 @@ svg {
         border: 1px solid $input_border_color;
       }
 
-      //.notValid:focus {
-      //  padding-left: 0;
-      //  outline: 1px solid $Redberry_Red;
-      //  border: 1px solid $Redberry_Red;
-      //}
+      .invalid:focus {
+        outline: 1px solid $Redberry_Red;
+        border: 1px solid $Redberry_Red;
+      }
 
     }
 
