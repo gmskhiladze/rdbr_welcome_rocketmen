@@ -5,6 +5,7 @@ import './App.scss';
 import Langing from "./components/Langing/Langing";
 import PersonalInfo from "./components/PersonalInfo/PersonalInfo";
 import TechnicalSkillset from "./components/TechnicalSkillset/TechnicalSkillset";
+import Covid from "./components/Covid/Covid";
 
 function App() {
 
@@ -22,7 +23,8 @@ function App() {
       { !isReady && <Langing ready={startSurvey}/>}
 
       {/*{ isReady && <PersonalInfo/>}*/}
-      { isReady && <TechnicalSkillset/>}
+      {/*{ isReady && <TechnicalSkillset/>}*/}
+      { isReady && <Covid/>}
 
     </div>
   );

@@ -1,0 +1,67 @@
+@import "src/assets/scss/mixins";
+@import "src/assets/scss/variables";
+
+.right__panel {
+  height: 146vh !important;
+}
+
+.fieldset {
+  @include margin(50px, 0, 0, 0);
+  @include wh(645px, none, none, none, none, none);
+  text-align: start;
+  border: none;
+
+  legend {
+    cursor: default;
+    @include margin(0, 0, 20px, 0);
+    @include wh(100%, none, none, none, none, none);
+    @include flex(flex, none, start, center);
+    @include font-face($default_font, normal, normal, 18px, 22px, center, none);
+    color: $default_black;
+  }
+
+  .fieldset__options {
+    @include flex(flex, column, center, start);
+
+    .option {
+      @include flex(flex, row-reverse, center, center);
+      @include margin(10px, 10px, 10px, 0);
+
+      label {
+        cursor: pointer;
+      }
+
+      input[type=radio] {
+        cursor: pointer;
+        @include margin(7px, 7px, 7px, 7px);
+        @include wh(12px, none, none, 12px, none, none);
+      }
+    }
+  }
+}
+
+.fieldset__date {
+  @include margin(50px, 0, 0, 0);
+  @include wh(645px, none, none, none, none, none);
+  text-align: start;
+  border: none;
+
+  legend {
+    cursor: default;
+    @include margin(0, 0, 20px, 0);
+    @include wh(100%, none, none, none, none, none);
+    @include flex(flex, none, start, center);
+    @include font-face($default_font, normal, normal, 18px, 22px, center, none);
+    color: $default_black;
+  }
+
+  .fieldset__date__options{
+    .date__option{
+      .input__date {
+        margin: 0 !important;
+        cursor: pointer;
+      }
+    }
+  }
+
+}
