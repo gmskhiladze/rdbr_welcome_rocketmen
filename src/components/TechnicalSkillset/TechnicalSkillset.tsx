@@ -47,6 +47,8 @@ function TechnicalSkillset({pages, page, personSkills}: any) {
     const [userSkills, setUserSkills] = useState({id: 0, experience: 0});
     const [userData, setUserData] = useState <usersData[]>([]);
 
+    console.log(userData)
+
     useEffect(() => {
 
         const API_URL = "https://bootcamp-2022.devtest.ge/api/skills";

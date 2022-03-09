@@ -90,15 +90,15 @@ function Covid({pages, page, stuff}: any) {
                             <div className={"fieldset__options"}>
 
                                 <div className={"option"}>
-                                    <label><input type="radio" name="work_preference" value="From Sairme Office" onChange={changeHandler}/>From Sairme Office</label>
+                                    <label><input type="radio" name="work_preference" value="from_sairme_office" onChange={changeHandler}/>From Sairme Office</label>
                                 </div>
 
                                 <div className={"option"}>
-                                    <label><input type="radio"  name="work_preference" value="From Home" onChange={changeHandler}/>From Home</label>
+                                    <label><input type="radio"  name="work_preference" value="from_home" onChange={changeHandler}/>From Home</label>
                                 </div>
 
                                 <div className={"option"}>
-                                    <label><input type="radio"  name="work_preference" value="Hybrid" onChange={changeHandler}/>Hybrid</label>
+                                    <label><input type="radio"  name="work_preference" value="hybrid" onChange={changeHandler}/>Hybrid</label>
                                 </div>
 
                             </div>

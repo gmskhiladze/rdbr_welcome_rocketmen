@@ -1,6 +1,15 @@
 @import "src/assets/scss/mixins";
 @import "src/assets/scss/variables";
 
+textarea {
+  @include wh(535px, none, none, 122px, none, none);
+  @include padding(24px, 24px, 24px, 24px);
+  border: 1px solid #525557;
+  resize: none;
+  @include font-face($default_font, normal, normal, 13px, 16px, none, none);
+  color: #3A3A3A;
+}
+
 .fieldset {
   @include margin(50px, 0, 0, 0);
   @include wh(645px, none, none, none, none, none);

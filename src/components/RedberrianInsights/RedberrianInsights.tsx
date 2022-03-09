@@ -20,7 +20,7 @@ const rightPanel = {
 function RedberrianInsights({pages, page, insights}: any) {
 
     const [about, setAbout] = useState({
-        will_organize_devtalk: "No",
+        will_organize_devtalk: false,
         devtalk_topic: "",
         something_special: ""
     });
@@ -29,7 +29,24 @@ function RedberrianInsights({pages, page, insights}: any) {
 
         const {name, value} = e.target;
 
-        if (name) {
+
+        if (name === "will_organize_devtalk") {
+            if (value === "true"){
+                setAbout(prevState => {
+                    return {
+                        ...prevState,
+                        [name]: true
+                    }
+                })
+            } else {
+                setAbout(prevState => {
+                    return {
+                        ...prevState,
+                        [name]: true
+                    }
+                })
+            }
+        } else {
             setAbout(prevState => {
                 return {
                     ...prevState,
@@ -38,7 +55,11 @@ function RedberrianInsights({pages, page, insights}: any) {
             })
         }
 
+
     }
+
+
+
 
     const switchForward = (e: any) => {
 
@@ -66,12 +87,12 @@ function RedberrianInsights({pages, page, insights}: any) {
                         <div className={"fieldset__options"}>
 
                             <div className={"option"}>
-                                <label><input type="radio"  name="will_organize_devtalk" value="Yes" onChange={changeHandler}/>Yes</label>
+                                <label><input type="radio"  name="will_organize_devtalk" value="true" onChange={changeHandler}/>Yes</label>
 
                             </div>
 
                             <div className={"option"}>
-                                <label><input type="radio"  name="will_organize_devtalk" value="No" onChange={changeHandler}/>No</label>
+                                <label><input type="radio"  name="will_organize_devtalk" value="false" onChange={changeHandler}/>No</label>
                             </div>
 
                         </div>
