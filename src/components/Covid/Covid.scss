@@ -2,7 +2,7 @@
 @import "src/assets/scss/variables";
 
 .right__panel {
-  height: 146vh !important;
+  max-height: 146vh !important;
 }
 
 .fieldset {
@@ -28,7 +28,17 @@
       @include margin(10px, 10px, 10px, 0);
 
       label {
+        margin: 0 !important;
+        width: 100%;
         cursor: pointer;
+        font-family: $default_font;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 17px;
+        display: flex;
+        align-items: center;
+        color: #000000;
       }
 
       input[type=radio] {

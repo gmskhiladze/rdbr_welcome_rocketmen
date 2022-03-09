@@ -23,9 +23,29 @@ export interface FetchData {
     title: string
 }
 
-function TechnicalSkillset() {
+export interface usersData {
+    id?: number,
+    experience?: number
+}
+
+const skillTitles = ["HTML", "CSS", "PHP", "Laravel", "React.JS", "Vue.JS", "Svelte", "Angular"];
+
+function TechnicalSkillset({pages, page, personSkills}: any) {
+
+    const [skillsError, setSkillsError] = useState({
+        skills: {
+            error: "",
+            isError: false
+        },
+        experience: {
+            error: "",
+            isError: false
+        }
+    });
 
     const [skills, setSkills] : [Array<FetchData>, Function] = useState([]);
+    const [userSkills, setUserSkills] = useState({id: 0, experience: 0});
+    const [userData, setUserData] = useState <usersData[]>([]);
 
     useEffect(() => {
 
@@ -41,8 +61,129 @@ function TechnicalSkillset() {
 
         getSkills().then(res => setSkills(res?.data));
 
-
     }, []);
+
+    const skillsHandler = (e: any) => {
+
+        const {value} = e.target;
+
+        if (e && value === "none"){
+            setSkillsError(prevState => {
+                return{
+                    ...prevState,
+                    "skills": {
+                        "error": "* please chose skill",
+                        "isError": true
+                    }
+                }
+            })
+        } else {
+            setSkillsError(prevState => {
+                return{
+                    ...prevState,
+                    "skills": {
+                        "error": "",
+                        "isError": false
+                    }
+                }
+            })
+
+            setUserSkills(prevState => {
+                return{
+                    ...prevState,
+                    "id": parseInt(value)
+                }
+            })
+        }
+
+    }
+
+    const changeHandler = (e: any) => {
+
+        const validateInput = new RegExp('^\\d');
+
+        const {value} = e.target;
+
+        if (validateInput.test(value)){
+
+            setUserSkills(prevState => {
+                return {
+                    ...prevState,
+                    "experience": parseInt(value)
+                }
+            })
+
+            setSkillsError(prevState => {
+                return{
+                    ...prevState,
+                    "experience": {
+                        "error": "",
+                        "isError": false
+                    }
+                }
+            })
+
+            e.target.classList.remove("invalid")
+
+        } else {
+
+            setSkillsError(prevState => {
+                return{
+                    ...prevState,
+                    "experience": {
+                        "error": "* please enter valid input 2 digit",
+                        "isError": true
+                    }
+                }
+            })
+            setUserSkills(prevState => {
+                return {
+                    ...prevState,
+                    "experience": 0
+                }
+            })
+
+            e.target.classList.add("invalid")
+
+        }
+
+    }
+
+    const addLanguageHandler = () => {
+        if (!skillsError.skills.isError && !skillsError.experience.isError){
+            if (userSkills.id !== 0){
+                setUserData((prevState: any) => {
+                    return [userSkills, ...prevState,];
+                });
+
+                setUserSkills({id: 0, experience: 0})
+            }
+        } else {
+            alert("enter valid values first")
+        }
+    }
+
+    const removeHandler = (e: any) => {
+        const {value} = e.target;
+
+        if (value) {
+            setUserData(userData.filter((el, index) => index !== parseInt(value)));
+        }
+
+    }
+
+    const switchForward = (e: any) => {
+
+        if (e) {
+            pages(3)
+            personSkills(userData);
+        }
+    }
+
+    const switchBack = (e: any) => {
+        pages(1)
+    }
+
 
     return (
         <div className={"container"}  >
@@ -51,47 +192,47 @@ function TechnicalSkillset() {
                 <LeftPanel title={leftPanel.title}/>
 
                 <div className={"input__container"}>
-                    <select className={"input__select"} placeholder={"Skills"} name="Skills" id="Skills">
+                    <select className={"input__select"} value={userSkills.id} placeholder={"Skills"} name="Skills" id="Skills" onChange={skillsHandler}>
 
-                        <option>Skills</option>
+                        <option value={"none"}>Skills</option>
 
                         {skills.map((item:FetchData) => (
-                            <option key={item.id} value={item.title}>
+                            <option key={item.id} value={item.id}>
                                 {item.title}
                             </option>
                         ))}
                     </select>
+                    <label htmlFor="Skills">{skillsError.skills.isError ? skillsError.skills.error : null}</label>
 
-                    <input className={"input__text experience"} type={'text'} name={"Experience"} placeholder={"Experience Duration in Years"} required/>
+                    <div>
+                        <input className={"input__text experience"} type={'tel'} name={"Experience"} placeholder={"Experience Duration in Years"} maxLength={2} onChange={changeHandler} required/>
+                        <label htmlFor="Experience">{skillsError.experience.isError ? skillsError.experience.error : null}</label>
+                    </div>
 
-                    <button className={"btn__add__language"} type={"submit"}>Add Programming Language</button>
+                    <button className={"btn__add__language"} onClick={addLanguageHandler}>Add Programming Language</button>
 
                     <ul className={"list"}>
-                        <li className={"list__items"} id={"php"}>
-                            <div className={"skill__title"}>PHP</div>
-                            <div className={"user__experience"}>Years of Experience: 3</div>
-                            <div className={"remove__btn__container"}><button className={"remove__btn"}>{svgProvider("remove")}</button></div>
-                        </li>
-
-                        <li className={"list__items"} id={"php"}>
-                            <div className={"skill__title"}>PHP</div>
-                            <div className={"user__experience"}>Years of Experience: 3</div>
-                            <div className={"remove__btn__container"}><button className={"remove__btn"}>{svgProvider("remove")}</button></div>
-                        </li>
+                        { userData.map((el, index) => (
+                            <li key={index} className={"list__items"}>
+                                <div className={"skill__title"}>{skillTitles[index]}</div>
+                                <div className={"user__experience"}>Years of Experience: {el.experience}</div>
+                                <div className={"remove__btn__container"}><button className={"remove__btn"} value={index} onClick={removeHandler} >{svgProvider("remove")}</button></div>
+                            </li>
+                        ))}
                     </ul>
 
                 </div>
 
                 <div className={"pagination"}>
-                    <button className={"arrowLeft"}>{svgProvider("arrowLeft")}</button>
+                    <button className={"arrowLeft"} onClick={switchBack}>{svgProvider("arrowLeft")}</button>
                     <div className={"circles"}>
-                        <button className={"circle selected"}>{svgProvider("circle")}</button>
-                        <button className={"circle"}>{svgProvider("circle")}</button>
-                        <button className={"circle"}>{svgProvider("circle")}</button>
-                        <button className={"circle"}>{svgProvider("circle")}</button>
+                        <button className={`circle ${page > 0 ? "selected " : ""} />}`}>{svgProvider("circle")}</button>
+                        <button className={`circle ${page > 1 ? "selected " : ""} />}`}>{svgProvider("circle")}</button>
+                        <button className={`circle ${page > 2 ? "selected " : ""} />}`}>{svgProvider("circle")}</button>
+                        <button className={`circle ${page > 3 ? "selected " : ""} />}`}>{svgProvider("circle")}</button>
                         <button className={"circle"}>{svgProvider("circle")}</button>
                     </div>
-                    <button className={"arrowRight"}>{svgProvider("arrowRight")}</button>
+                    <button className={"arrowRight"} onClick={switchForward}>{svgProvider("arrowRight")}</button>
                 </div>
 
             </div>

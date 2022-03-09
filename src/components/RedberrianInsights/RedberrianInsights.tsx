@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 import '../shared/sharedStyles.scss'
 import './RedberrianInsights.scss'
@@ -17,7 +17,42 @@ const rightPanel = {
 };
 
 
-function RedberrianInsights() {
+function RedberrianInsights({pages, page, insights}: any) {
+
+    const [about, setAbout] = useState({
+        will_organize_devtalk: "No",
+        devtalk_topic: "",
+        something_special: ""
+    });
+
+    const changeHandler = (e: any) => {
+
+        const {name, value} = e.target;
+
+        if (name) {
+            setAbout(prevState => {
+                return {
+                    ...prevState,
+                    [name]: value
+                }
+            })
+        }
+
+    }
+
+    const switchForward = (e: any) => {
+
+        pages(5)
+        if (e) {
+            insights(about)
+        }
+    }
+
+    const switchBack = (e: any) => {
+        pages(3)
+    }
+
+
     return (
         <div className={"container"}  >
             <div className={"left__panel"}>
@@ -31,13 +66,35 @@ function RedberrianInsights() {
                         <div className={"fieldset__options"}>
 
                             <div className={"option"}>
-                                <label htmlFor="yes">Yes</label>
-                                <input type="radio"  name="yes" value="Yes"/>
+                                <label><input type="radio"  name="will_organize_devtalk" value="Yes" onChange={changeHandler}/>Yes</label>
+
                             </div>
- 
+
                             <div className={"option"}>
-                                <label htmlFor="no">No</label>
-                                <input type="radio"  name="no" value="No"/>
+                                <label><input type="radio"  name="will_organize_devtalk" value="No" onChange={changeHandler}/>No</label>
+                            </div>
+
+                        </div>
+                    </fieldset>
+
+
+                    <fieldset className={"fieldset"}>
+                        <legend>What would you speak about at Devtalk?</legend>
+                        <div className={"fieldset__options"}>
+
+                            <div className={"option"}>
+                                <textarea name="devtalk_topic" placeholder={"I would..."} value={about.devtalk_topic} onChange={changeHandler}> </textarea>
+                            </div>
+
+                        </div>
+                    </fieldset>
+
+                    <fieldset className={"fieldset"}>
+                        <legend>Tell us something special</legend>
+                        <div className={"fieldset__options"}>
+
+                            <div className={"option"}>
+                                <textarea name="something_special" placeholder={"I ..."} value={about.something_special} onChange={changeHandler}> </textarea>
                             </div>
 
                         </div>
@@ -47,15 +104,15 @@ function RedberrianInsights() {
                 </div>
 
                 <div className={"pagination"}>
-                    <button className={"arrowLeft"}>{svgProvider("arrowLeft")}</button>
+                    <button className={"arrowLeft"} onClick={switchBack}>{svgProvider("arrowLeft")}</button>
                     <div className={"circles"}>
-                        <button className={"circle selected"}>{svgProvider("circle")}</button>
-                        <button className={"circle"}>{svgProvider("circle")}</button>
-                        <button className={"circle"}>{svgProvider("circle")}</button>
-                        <button className={"circle"}>{svgProvider("circle")}</button>
+                        <button className={`circle ${page > 0 ? "selected " : ""} />}`}>{svgProvider("circle")}</button>
+                        <button className={`circle ${page > 1 ? "selected " : ""} />}`}>{svgProvider("circle")}</button>
+                        <button className={`circle ${page > 2 ? "selected " : ""} />}`}>{svgProvider("circle")}</button>
+                        <button className={`circle ${page > 3 ? "selected " : ""} />}`}>{svgProvider("circle")}</button>
                         <button className={"circle"}>{svgProvider("circle")}</button>
                     </div>
-                    <button className={"arrowRight"}>{svgProvider("arrowRight")}</button>
+                    <button className={"arrowRight"} onClick={switchForward}>{svgProvider("arrowRight")}</button>
                 </div>
 
             </div>

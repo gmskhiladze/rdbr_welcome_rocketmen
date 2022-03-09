@@ -1,12 +1,23 @@
 @import "src/assets/scss/mixins";
 @import "src/assets/scss/variables";
 
+label {
+  display: flex;
+  width: 100%;
+  height: 25px;
+  font-size: 12px;
+  margin-top: -15px;
+  margin-left: 80px;
+  text-align: left;
+  color: $Redberry_Red;
+}
 
 .input__container {
   display: flex;
   align-items: end !important;
 
   .btn__add__language{
+    cursor: pointer;
     @include margin(15px, 25px, 25px, 25px);
     @include wh(201px, none, none, 32px, none, none);
     @include flex(flex, none, center, center);
