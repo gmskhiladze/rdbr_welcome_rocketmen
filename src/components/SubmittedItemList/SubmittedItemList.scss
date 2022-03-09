@@ -1,9 +1,6 @@
 @import "src/assets/scss/mixins";
 @import "src/assets/scss/variables";
 
-span {
-  color: #0C0D0E !important;
-}
 
 .item__container {
 
@@ -41,6 +38,7 @@ span {
 
      span, svg {
        margin: 0 25px;
+       color: #0C0D0E !important;
      }
    }
 
