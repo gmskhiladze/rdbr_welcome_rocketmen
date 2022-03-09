@@ -1,9 +1,8 @@
 @import "src/assets/scss/mixins";
 @import "src/assets/scss/variables";
 
-
 .buttons {
-  @include margin(70px, 0, 0, 0);
+  @include margin(22%, 0, 0, 0);
   @include flex(flex, column, center, center);
 
   .btn__submit{
@@ -36,6 +35,7 @@
 
 .thanks {
   position: absolute;
+  @include margin(22%, 0, 0, 0);
 
   span {
     @include font-face($heading_font, normal, normal, 96px, 119px, center, none);

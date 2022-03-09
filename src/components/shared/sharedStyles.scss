@@ -20,7 +20,7 @@ svg {
 
 .container {
   @include wh(100%, 100%, none, none, 100vh, none);
-  @include flex(flex, row, center, center);
+  @include flex(flex, row, center, start);
   background-color: $default_black;
 
   .left__panel {

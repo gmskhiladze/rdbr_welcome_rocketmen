@@ -26,7 +26,7 @@ function Submit({pages, page, page1, page2, page3, page4}: any) {
 
         axios(config)
             .then(function (response) {
-                console.log(JSON.stringify(response.status));
+                // console.log(JSON.stringify(response.status));
                 if (JSON.stringify(response.status) === "201"){
                     setIsDisplay(true);
                     setTimeout( () => {

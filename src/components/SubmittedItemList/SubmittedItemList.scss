@@ -1,7 +1,6 @@
 @import "src/assets/scss/mixins";
 @import "src/assets/scss/variables";
 
-
 .item__container {
 
   position: absolute;
@@ -15,6 +14,10 @@
   align-items: center;
 
   background-color: $default_black;
+
+  span {
+    color: #0C0D0E !important;
+  }
 
   .item {
     width: 1154px;
@@ -38,7 +41,6 @@
 
      span, svg {
        margin: 0 25px;
-       color: #0C0D0E !important;
      }
    }
 

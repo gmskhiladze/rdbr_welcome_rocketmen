@@ -19,13 +19,6 @@ function App({getData}: any) {
   const [covidStuff, setCovidStuff] = useState({});
   const [aboutYou, setAboutYou] = useState({});
 
-  console.log(page)
-  console.log(isReady)
-  console.log(personalInfo)
-  console.log(skills)
-  console.log(covidStuff)
-  console.log(aboutYou)
-
   const startSurvey = (e: boolean) => {
     setIsReady(true)
     setPage(1)
@@ -78,8 +71,6 @@ function App({getData}: any) {
   const showApplications = (data: boolean) => {
       setApplicationIsReady(data);
   }
-
-  console.log(applicationIsReady)
 
   return (
     <div className="App">
