@@ -56,7 +56,7 @@ function SubmittedItemList() {
                  </div>
 
                  { applications.map((el, index) => (
-                     <div>
+                     <div key={index}>
                          <div className="item__header">
                              <span>{index}</span>
                              {svgProvider("arrowDown")}
